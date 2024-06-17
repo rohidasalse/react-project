@@ -4,6 +4,7 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import FirstProject from './react1'
 import RandomColorGenerator from "./project2/index.jsx"
+import Rating from './project3(reting)/index.jsx'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -11,7 +12,8 @@ function App() {
   return (
     <>
       {/* <FirstProject></FirstProject> */}
-       <RandomColorGenerator/>
+       {/* <RandomColorGenerator/> */}
+       <Rating></Rating>
     </>
   )
 }
