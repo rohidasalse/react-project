@@ -6,14 +6,16 @@ import FirstProject from './react1'
 import RandomColorGenerator from "./project2/index.jsx"
 import Rating from './project3(reting)/index.jsx'
 
+
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
+    {/* <R></R> */}
       {/* <FirstProject></FirstProject> */}
        {/* <RandomColorGenerator/> */}
-       <Rating></Rating>
+       <Rating onofStars={5}></Rating>
     </>
   )
 }
