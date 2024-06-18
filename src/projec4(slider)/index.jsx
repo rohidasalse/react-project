@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-
-export default function Slider({ url, limit=10, page=1 }) {
+import { BsArrowLeftCircleFill, BsArrowRightCircleFill } from "react-icons/bs"
+export default function Slider({ url, limit, page }) {
     const [image, setImage] = useState([])
     const [currentSlide, setCurrentSlide] = useState(0)
     const [errorMessage, setErrorMessage] = useState("")
@@ -9,7 +9,7 @@ export default function Slider({ url, limit=10, page=1 }) {
         try {
             setLoading(true)
 
-            const response = await fetch(`${geturl}?page=${1} & limit=${10}`)
+            const response = await fetch(`${geturl}?page=${page}&limit=${limit}`)
             const data = await response.json()
             if (data) {
                 setImage(data)
@@ -33,14 +33,32 @@ export default function Slider({ url, limit=10, page=1 }) {
     if (errorMessage !== null) {
         return <div>Error occured !{errorMessage}</div>
     }
-    return (
-        <>
-            <div className="container">
+    return <div className="container">
 
-                <h2>slider</h2>
-                <h2>slider</h2>
-            </div>
-        </>
-    );
+        <BsArrowLeftCircleFill className="arrow arrow-left" />{
+            image && image.length ? image.map((imageItm) => (
+                <img
+                    src={imageItm.download_url}
+                    alt={imageItm.download_url}
+                    key={imageItm.id}
+                    className="current-img" />
+            )) :null
+        }
+        <BsArrowRightCircleFill className="arrow arrow-right" />{
+            <span className="circle-indicator">{
+
+                image && image.length ? image.map((_,index) => <button
+                     key={index.id}
+                     className="current-indicator" 
+                >
+                </button>) : null
+            }
+
+            </span>
+
+        }
+    </div>
+
+
 }
 // https://picsum.photos/v2/list?page=1&limit=500
