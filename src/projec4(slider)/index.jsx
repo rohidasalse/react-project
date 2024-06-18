@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import "./style.css"
 import { BsArrowLeftCircleFill, BsArrowRightCircleFill } from "react-icons/bs"
 export default function Slider({ url, limit, page }) {
     const [image, setImage] = useState([])
