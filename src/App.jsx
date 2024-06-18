@@ -5,6 +5,7 @@ import './App.css'
 import FirstProject from './react1'
 import RandomColorGenerator from "./project2/index.jsx"
 import Rating from './project3(reting)/index.jsx'
+import Slider from './projec4(slider)/index.jsx'
 
 
 function App() {
@@ -15,7 +16,8 @@ function App() {
     {/* <R></R> */}
       {/* <FirstProject></FirstProject> */}
        {/* <RandomColorGenerator/> */}
-       <Rating onofStars={5}></Rating>
+       {/* <Rating onofStars={5}></Rating> */}
+       <Slider url={"https://picsum.photos/v2/list"}page={"1"} limit={"10"}></Slider>
     </>
   )
 }
