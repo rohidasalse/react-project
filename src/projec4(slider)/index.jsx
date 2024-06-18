@@ -38,6 +38,7 @@ export default function Slider({ url, limit=10, page=1 }) {
             <div className="container">
 
                 <h2>slider</h2>
+                <h2>slider</h2>
             </div>
         </>
     );
