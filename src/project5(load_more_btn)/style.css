@@ -1,0 +1,45 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.product-container{
+    gap: 10px;
+    display: grid;
+    grid-template-columns:repeat(4,2fr);
+}
+.product{
+    padding: 10px;
+    border: 2px solid;
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+    text-align: center;
+}
+.button-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.heading{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+h1{
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
+    text-align: center;
+}
+button{
+    cursor: pointer;
+    color: #faf6f6;
+    background-color: rgb(29, 236, 60);
+    height: 25px;
+    width: 110px;
+}
+button:hover{
+    background-color:rgb(26, 19, 228) ;
+    color: white;
+}
