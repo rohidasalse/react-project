@@ -14,6 +14,7 @@ export default function Slider({ url, limit, page }) {
             const response = await fetch(`${geturl}?page=${page}&limit=${limit}`)
             const data = await response.json()
             if (data) {
+           
                
                 setImage(data)
              
@@ -34,7 +35,14 @@ export default function Slider({ url, limit, page }) {
             fetchImg(url)
         }
     }, [url])
+function handleprevious(){
+    setCurrentSlide(currentSlide===0 ? image.length -1 : currentSlide - 1)
 
+}
+function handlenext(){
+    setCurrentSlide(currentSlide=== image.length -1?  0 : currentSlide + 1)
+
+}
     if (loading) {
         return <div> data is loading ! please wait</div>
 
@@ -65,23 +73,24 @@ export default function Slider({ url, limit, page }) {
     // )
    else  return <div className="container">
 
-        <BsArrowLeftCircleFill onClick={handleprevious} className="arrow arrow-left" />{
-            image && image.length ? image.map((imageItm) =>
+        <BsArrowLeftCircleFill onClick={()=>handleprevious()} className="arrow arrow-left" />{
+            image && image.length ? image.map((imageItm,index) =>
                 <img
                     src={imageItm.download_url}
 
                     alt={imageItm.download_url}
                     key={imageItm.id}
-                    className="current-img" />
+                    className={currentSlide===index? "current-img":"current-img hide-current-img"} />
             
             ) : null
         }
-        <BsArrowRightCircleFill onClick ={handlenext} className="arrow arrow-right" />{
+        <BsArrowRightCircleFill onClick ={()=>handlenext()} className="arrow arrow-right" />{
             <span className="circle-indicator">{
 
                 image && image.length ? (image.map((_, index) => <button
                     key={index.id}
-                    className="current-indicator"
+                    className={currentSlide===index ? "current-indicator" : "current-indicator hide-current-indicator"}
+                    onClick={()=>{ setCurrentSlide(index)}}
                 >
                 </button>)) : null
             }

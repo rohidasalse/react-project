@@ -1,8 +1,8 @@
 
 .container{
     display:flex;
-    height: 450px;
-    width: 600px;
+    height: 700px;
+    width: 100%;
     position: relative;
     justify-content: center;
     align-items: center;
@@ -22,9 +22,11 @@
 }
 .arrow-left{
     left: 1rem;
+    cursor: pointer;
 }
 .arrow-right{
     right: 1rem;
+    cursor: pointer;
 }
 .circle-indicator{
 display: flex;
@@ -40,4 +42,13 @@ bottom: 1rem;
     cursor: pointer;
     border: none;
     outline: none;
+}
+.hide-current-img{
+    display: none;
+}
+.hide-current-indicator{
+    background-color: grey;
+}
+img{
+ background-size: cover;
 }

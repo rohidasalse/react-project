@@ -17,7 +17,7 @@ function App() {
       {/* <FirstProject></FirstProject> */}
        {/* <RandomColorGenerator/> */}
        {/* <Rating onofStars={5}></Rating> */}
-       <Slider url={"https://picsum.photos/v2/list"} limit={10} page={1}></Slider>
+       <Slider url={"https://picsum.photos/v2/list"} limit={10} page={2}></Slider>
     </>
   )
 }
