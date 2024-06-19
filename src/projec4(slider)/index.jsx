@@ -7,17 +7,22 @@ export default function Slider({ url, limit, page }) {
     const [errorMessage, setErrorMessage] = useState("")
     const [loading, setLoading] = useState(false)
     async function fetchImg(geturl) {
+        // console.log(geturl)
         try {
             setLoading(true)
 
             const response = await fetch(`${geturl}?page=${page}&limit=${limit}`)
             const data = await response.json()
             if (data) {
+                console.log("this data")
                 setImage(data)
+                // console.log(data)
                 setLoading(false)
             }
         } catch (error) {
-            setErrorMessage(error.message)
+            console.log(error.message)
+            console.log(errorMessage)
+            setErrorMessage()
             setLoading(false)
 
         }
@@ -27,32 +32,36 @@ export default function Slider({ url, limit, page }) {
             fetchImg(url)
         }
     }, [url])
-    console.log(image)
+ 
+    setImage(image)
     if (loading) {
         return <div> data is loading ! please wait</div>
     }
     if (errorMessage !== null) {
+       
         return <div>Error occured !{errorMessage}</div>
     }
     return <div className="container">
 
         <BsArrowLeftCircleFill className="arrow arrow-left" />{
-            image && image.length ? image.map((imageItm) => (
+            image && image.length ?image.map((imageItm) => {
                 <img
                     src={imageItm.download_url}
+                    
                     alt={imageItm.download_url}
                     key={imageItm.id}
                     className="current-img" />
-            )) :null
+            }
+            ) :null
         }
         <BsArrowRightCircleFill className="arrow arrow-right" />{
             <span className="circle-indicator">{
 
-                image && image.length ? image.map((_,index) => <button
+                image && image.length ?( image.map((_,index) => <button
                      key={index.id}
                      className="current-indicator" 
                 >
-                </button>) : null
+                </button>)) : null
             }
 
             </span>
