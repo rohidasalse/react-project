@@ -1,0 +1,43 @@
+
+.container{
+    display:flex;
+    height: 450px;
+    width: 600px;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+}
+.current-img{
+    border-radius: 0.5rem;
+    height: 100%;
+    width: 100%;
+    box-shadow: 0px 0px 7px rgb(35, 28, 28);
+}
+.arrow{
+    position: absolute;
+    height: 2rem;
+    width: 2rem;
+    color: white;
+    filter: drop-shadow(0px 0px 5px #555);
+}
+.arrow-left{
+    left: 1rem;
+}
+.arrow-right{
+    right: 1rem;
+}
+.circle-indicator{
+display: flex;
+position: absolute;
+bottom: 1rem;
+}
+.current-indicator{
+    background-color: white;
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    margin: 0 0.2rem;
+    cursor: pointer;
+    border: none;
+    outline: none;
+}
