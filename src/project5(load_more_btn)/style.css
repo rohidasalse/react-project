@@ -43,3 +43,7 @@ button:hover{
     background-color:rgb(26, 19, 228) ;
     color: white;
 }
+.button-container{
+    display: flex;
+    flex-direction: column;
+}

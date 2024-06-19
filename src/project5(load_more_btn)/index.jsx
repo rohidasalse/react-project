@@ -7,6 +7,7 @@ export default function LoadMore() {
     const [product, setProduct] = useState([])
     const [count, setCount] = useState(0)
     const [load, setLoad] = useState(false)
+    const [disabl, setDisabl] = useState(false)
     async function fetchproduct() {
         try {
             setLoad(true)
@@ -30,6 +31,11 @@ export default function LoadMore() {
     useEffect(() => {
         fetchproduct()
     }, [count])
+
+    useEffect(() => {
+       if(product && product.length === 60) setDisabl(true)
+    }, [product])
+
     if (load) {
         return <div>data is loading ! Please wait</div>
         console.log("data is loading ! Please wait")
@@ -47,7 +53,7 @@ export default function LoadMore() {
                     <div className="product" key={item.id}>
 
                         <img src={item.thumbnail} alt="" />
-                        <p>{item.title}</p>
+                        <p>{item.title}{item.id}</p>
 
 
 
@@ -56,7 +62,12 @@ export default function LoadMore() {
         </div>
         <div className="button-container">
 
-            <button onClick={() => setCount(count+1)}>load more</button>
+            <button disabled={disabl} onClick={() => setCount(count+1)}>load more</button>
+            <div>
+                {
+                    disabl? <p> you reach 60 items</p>:null
+                }
+            </div>
         </div>
     </div>
 
